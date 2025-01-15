@@ -3,6 +3,7 @@ package models
 import (
 	"errors"
 	"six-go/utils"
+	"six-go/utils/arrays"
 	"strings"
 
 	validation "github.com/go-ozzo/ozzo-validation"
@@ -37,10 +38,10 @@ func (data AuthUser) HasTableName(filed string) string {
 }
 
 func (data AuthUser) KeywordFields() []string {
-	return []string{
+	return arrays.NewOrdered(
 		data.HasTableName("username"),
 		data.HasTableName("nickname"),
-	}
+	)
 }
 
 func (data AuthUser) FilterSqlBuilder() func(db *gorm.DB) *gorm.DB {

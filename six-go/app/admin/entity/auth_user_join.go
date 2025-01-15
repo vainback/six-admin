@@ -6,7 +6,6 @@ import (
 	"strings"
 
 	"gorm.io/gorm"
-	"six-go/database/db"
 	"six-go/database/models"
 )
 
@@ -17,10 +16,6 @@ type AuthUserJoinJob struct {
 
 func (e AuthUserJoinJob) TableName() string {
 	return e.AuthUser.TableName()
-}
-
-func (e AuthUserJoinJob) Model() db.ModelIof {
-	return e
 }
 
 func (e AuthUserJoinJob) KeywordFields() []string {

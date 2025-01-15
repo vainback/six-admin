@@ -59,8 +59,8 @@ func (q *Query[T]) List(list any, total *int64) error {
 	return q.db.Scopes(q.QueryOrderBys.SqlBuilder(), q.QueryPage.SqlBuilder()).Find(list).Error
 }
 
-func (q *Query[T]) JoinFind(list any, joins func(db *gorm.DB) *gorm.DB) error {
-	return q.db.Scopes(joins, q.QueryOrderBys.SqlBuilder()).Find(list).Error
+func (q *Query[T]) JoinFind(list any, joins, selectFields func(db *gorm.DB) *gorm.DB) error {
+	return q.db.Scopes(joins, selectFields, q.QueryOrderBys.SqlBuilder()).Find(list).Error
 }
 
 func (q *Query[T]) JoinList(list any, total *int64, joins, selectFields func(db *gorm.DB) *gorm.DB) error {

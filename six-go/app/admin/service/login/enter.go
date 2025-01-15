@@ -62,7 +62,7 @@ var (
 )
 
 var loginConfig = sessionConfig{
-	userLimit:         1,
+	userLimit:         9999,
 	userLimitOverMode: userLimitOverModeCover,
 	expireTime:        time.Hour * 24 * 7, // 默认每个token登录有效期保活7天
 }
