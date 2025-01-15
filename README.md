@@ -9,7 +9,7 @@
 
 [演示地址](https://dl.sorks.cn/admin)
 
-文档暂缺，正在编辑中
+[文档地址](https://7qrb1gx8pv.k.topthink.com/@six-admin/qianyan.html)
 
 ## 二、技术栈
 
