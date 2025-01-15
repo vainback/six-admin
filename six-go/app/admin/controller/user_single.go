@@ -11,7 +11,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	validation "github.com/go-ozzo/ozzo-validation"
-	"github.com/gofiber/fiber/v2"
 	"gorm.io/gorm"
 	"six-go/app/admin/middleware"
 	loginService "six-go/app/admin/service/login"
@@ -87,7 +86,7 @@ func (ts *UserSingleController) Login(c *gin.Context) {
 		return
 	}
 
-	response.Json(c, response.OkLogin, fiber.Map{
+	response.Json(c, response.OkLogin, gin.H{
 		"token":    token,
 		"userinfo": row,
 		"roles":    arrays.Number2String(row.RoleIds),
