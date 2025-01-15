@@ -25,6 +25,8 @@ Go Version >= 1.23
 node version >= 18.0
 npm建议安装nrm包 随时切换代理
 
+
+已对 COS OSS 七牛云 进行简单适配
 ```
 
 ### 后端技术栈
