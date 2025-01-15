@@ -1,0 +1,34 @@
+app:
+  port: 3000
+  debug: true
+database:
+  auto_migrate: false
+  log_level: info
+  max_open_conn: 10
+  max_idle_conn: 10
+  max_life_time: 14400
+  dsn: "six:fYPpwsHyCLAj6bPh@tcp(103.91.209.176:3306)/six?charset=utf8mb4&parseTime=True&loc=Local"
+redis:
+  addr: "localhost:6379"
+  password: ""
+  db: 0
+upload:
+  type: local
+  name: md5 # todo 文件名生成方式 可选值 md5|times  md5:信息摘要 可保证同一个文件不会重复保存在服务器上  times:纳秒级时间戳
+  path: uploads
+cos: # 腾讯云对象存储
+  secret_id:
+  secret_key:
+  bucket:
+  region:
+oss: # 阿里云对象存储
+  access_key_id:
+  access_key_secret:
+  bucket:
+  endpoint:
+qiniu: # 七牛云对象存储
+  access_key:
+  secret_key:
+  bucket:
+  url:
+  region:

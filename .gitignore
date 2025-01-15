@@ -23,3 +23,13 @@ go.work.sum
 
 # env file
 .env
+
+.idea/
+.vscode/
+.husky/
+.fleet/
+node_modules/
+vendor/
+uploads/
+tests/
+dist/
