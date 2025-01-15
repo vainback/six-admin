@@ -68,7 +68,7 @@
                     <a-table-column
                         title="文件类型"
                         data-index="mime"
-                        width="150"
+                        width="200"
                     ></a-table-column>
                     <a-table-column
                         title="存储方式"
