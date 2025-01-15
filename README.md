@@ -20,7 +20,7 @@
 Go Version >= 1.23
 至少保证 Go 1.23 以上 需开启环境变量 GOEXPERIMENT=aliastypeparams
 或更新至 Go 1.24 以上
-设置 go mode 代理为：GOPROXY=https://goproxy.cn,direct
+设置 go mod 代理为：GOPROXY=https://goproxy.cn,direct
 
 node version >= 18.0
 npm建议安装nrm包 随时切换代理
