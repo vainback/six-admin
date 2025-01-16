@@ -18,7 +18,7 @@
                     v-if="!loading"
                     checkable
                     check-strictly
-                    :expanded-keys="expandedKeys"
+                    default-expand-all
                     @expand="es => expandedKeys = es.map(item => Number(item))"
                     :data="treeData"
                     :checkedKeys="checkedKeys"
@@ -50,7 +50,7 @@ import {ref, watch} from 'vue';
     const loading = ref(false);
     const treeData = ref([]);
     const checkedKeys = ref<number[]>([]);
-    const expandedKeys = ref<number[]>([1,2])
+    // const expandedKeys = ref<number[]>([1,2])
     const menutree = ref(null);
     const emit = defineEmits(['close', 'refresh', 'closeAndRefresh']);
 
