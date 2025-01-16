@@ -130,12 +130,12 @@
                                             status: 'danger',
                                         }"
                                         @ok="toDel(record.id)"
-                                        v-permission="'system:user:del'"
                                     >
                                         <a-button
                                             type="text"
                                             status="danger"
                                             :size="size"
+                                            v-permission="'system:user:del'"
                                             >删除
                                         </a-button>
                                     </a-popconfirm>
