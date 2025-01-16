@@ -17,6 +17,7 @@
                     ref="menutree"
                     v-if="!loading"
                     checkable
+                    check-strictly
                     :expanded-keys="expandedKeys"
                     @expand="es => expandedKeys = es.map(item => Number(item))"
                     :data="treeData"
