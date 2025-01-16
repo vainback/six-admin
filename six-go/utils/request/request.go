@@ -47,7 +47,7 @@ func Post(uri string, data any, result any) error {
 	return jsoniter.Unmarshal(resultBytes, result)
 }
 
-func POSTForm(uri string, data *URLParam, result any) error {
+func PostForm(uri string, data *URLParam, result any) error {
 	resp, err := http.PostForm(uri, data.values)
 	if err != nil {
 		return err
