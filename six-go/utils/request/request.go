@@ -3,6 +3,7 @@ package request
 import (
 	"bytes"
 	"encoding/json"
+	jsoniter "github.com/json-iterator/go"
 	"io"
 	"net/http"
 )
@@ -21,7 +22,7 @@ func Get(uri string, values *URLParam, result any) error {
 		return err
 	}
 
-	return json.Unmarshal(resultBytes, result)
+	return jsoniter.Unmarshal(resultBytes, result)
 }
 
 func Post(uri string, data any, result any) error {
@@ -43,7 +44,7 @@ func Post(uri string, data any, result any) error {
 		return err
 	}
 
-	return json.Unmarshal(resultBytes, result)
+	return jsoniter.Unmarshal(resultBytes, result)
 }
 
 func POSTForm(uri string, data *URLParam, result any) error {
@@ -58,5 +59,5 @@ func POSTForm(uri string, data *URLParam, result any) error {
 	if err != nil {
 		return err
 	}
-	return json.Unmarshal(resultBytes, result)
+	return jsoniter.Unmarshal(resultBytes, result)
 }

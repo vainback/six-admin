@@ -24,7 +24,7 @@ func (data Files) TableName() string {
 }
 
 func (data Files) HasTableName(filed string) string {
-	return strings.Join([]string{data.TableName(), filed}, ".")
+	return six.Strings(data.TableName(), ".", filed).String()
 }
 
 func (data Files) KeywordFields() []string {

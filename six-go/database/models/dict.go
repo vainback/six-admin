@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"github.com/vainback/six-util/v3"
 	"six-go/database/v_errors"
 	"strings"
 
@@ -28,14 +29,14 @@ func (data Dict) TableName() string {
 }
 
 func (data Dict) HasTableName(filed string) string {
-	return strings.Join([]string{data.TableName(), filed}, ".")
+	return six.Strings(data.TableName(), ".", filed).String()
 }
 
 func (data Dict) KeywordFields() []string {
-	return []string{
+	return six.Arrays(
 		data.HasTableName("type"),
 		data.HasTableName("label"),
-	}
+	)
 }
 
 func (data Dict) FilterSqlBuilder() func(db *gorm.DB) *gorm.DB {

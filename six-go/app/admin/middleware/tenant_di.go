@@ -2,7 +2,7 @@ package middleware
 
 import (
 	"bytes"
-	"encoding/json"
+	jsoniter "github.com/json-iterator/go"
 	"io"
 
 	"github.com/gin-gonic/gin"
@@ -19,7 +19,7 @@ func TenantDI(c *gin.Context) {
 		return
 	}
 	var requestBody map[string]any
-	if err = json.Unmarshal(requestBodyBytes, &requestBody); err != nil {
+	if err = jsoniter.Unmarshal(requestBodyBytes, &requestBody); err != nil {
 		c.Abort()
 		response.JsonError(c, response.ErrorParamsParser, err)
 		return
@@ -41,7 +41,7 @@ func TenantDI(c *gin.Context) {
 		requestBody["model"] = m
 	}
 
-	bodyBytes, err := json.Marshal(requestBody)
+	bodyBytes, err := jsoniter.Marshal(requestBody)
 	if err != nil {
 		c.Abort()
 		response.JsonError(c, "参数序列化失败", err)

@@ -3,10 +3,10 @@ package loginService
 import (
 	"fmt"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/vainback/six-util/v3"
 	"log"
 	"six-go/database/models"
 	"six-go/extra/xredis"
-	"six-go/utils/arrays"
 )
 
 type RedisDriver struct {
@@ -39,7 +39,8 @@ func (ts RedisDriver) Set(userinfo *models.AuthUser) error {
 		case userLimitOverModeBlock: // 阻塞模式
 			return ErrorLoginBlocked
 		default:
-			tokens = arrays.NewOrdered(tokens...).Replace(oldToken, ts.token)
+			//tokens = arrays.NewOrdered(tokens...).Replace(oldToken, ts.token)
+			tokens = six.Array(tokens).Replace(oldToken, ts.token)
 			if err := xredis.Del(redisRealTokenKey(oldToken)); err != nil {
 				log.Println(err)
 			}

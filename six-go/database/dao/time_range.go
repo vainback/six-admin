@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"six-go/utils"
+	"github.com/vainback/six-util/v3"
 	"strings"
 
 	"gorm.io/gorm"
@@ -15,8 +15,7 @@ type QueryTime struct {
 func (ts QueryTime) SqlBuilder(tableName ...string) func(db *gorm.DB) *gorm.DB {
 	var field = "create_time"
 	if len(tableName) > 0 {
-		//field = fields[0]
-		field = utils.String(tableName[0]).Strings(".", field).String()
+		field = six.Str(tableName[0]).Append(".", field).String()
 	}
 
 	return func(db *gorm.DB) *gorm.DB {

@@ -2,8 +2,8 @@ package models
 
 import (
 	"errors"
+	"github.com/vainback/six-util/v3"
 	"six-go/utils"
-	"six-go/utils/arrays"
 	"strings"
 
 	validation "github.com/go-ozzo/ozzo-validation"
@@ -34,11 +34,11 @@ func (data AuthUser) TableName() string {
 }
 
 func (data AuthUser) HasTableName(filed string) string {
-	return strings.Join([]string{data.TableName(), filed}, ".")
+	return six.Strings(data.TableName(), ".", filed).String()
 }
 
 func (data AuthUser) KeywordFields() []string {
-	return arrays.NewOrdered(
+	return six.Arrays(
 		data.HasTableName("username"),
 		data.HasTableName("nickname"),
 	)

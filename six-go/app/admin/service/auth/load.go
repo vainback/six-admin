@@ -2,12 +2,12 @@ package authService
 
 import (
 	"fmt"
+	"github.com/vainback/six-util/v3"
 	"golang.org/x/exp/maps"
 	"log"
 	"six-go/database/db"
 	"six-go/database/models"
 	"six-go/extra/xcache"
-	"six-go/utils"
 	"slices"
 	"strings"
 )
@@ -68,7 +68,8 @@ func GetNamesByRoute(route string) string {
 		if index == 0 {
 			auths = append(auths, val)
 		} else {
-			auths = append(auths, utils.Strings(auths[index-1], ":", val).String())
+			//auths = append(auths, utils.Strings(auths[index-1], ":", val).String())
+			auths = append(auths, six.Str(auths[index-1]).Append(":", val).String())
 		}
 	}
 	var names = make(map[int64]string)

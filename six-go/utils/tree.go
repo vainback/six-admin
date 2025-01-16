@@ -2,7 +2,7 @@ package utils
 
 import (
 	"github.com/spf13/cast"
-	"six-go/utils/structs"
+	"github.com/vainback/six-util/v3"
 )
 
 const (
@@ -16,7 +16,7 @@ type Tree struct {
 }
 
 func NewTree[T any](list []T) *Tree {
-	return &Tree{structs.SliceMap[T](list)}
+	return &Tree{six.Structs2SliceMap(list)}
 }
 
 func NewTreeWithMapAny(list []map[string]any) *Tree {

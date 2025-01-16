@@ -2,8 +2,8 @@ package models
 
 import (
 	"errors"
+	"github.com/vainback/six-util/v3"
 	"log"
-	"six-go/utils"
 	"strings"
 
 	validation "github.com/go-ozzo/ozzo-validation"
@@ -47,7 +47,7 @@ func (AuthRule) TableName() string {
 }
 
 func (data AuthRule) HasTableName(filed string) string {
-	return strings.Join([]string{data.TableName(), filed}, ".")
+	return six.Strings(data.TableName(), ".", filed).String()
 }
 
 func (data AuthRule) KeywordFields() []string {
@@ -140,7 +140,8 @@ func (data AuthRule) GetParentsNameWithAuth(auth string) string {
 			if index == 0 {
 				auths = append(auths, val)
 			} else {
-				auths = append(auths, utils.Strings(auths[index-1], ":", val).String())
+				//auths = append(auths, utils.Strings(auths[index-1], ":", val).String())
+				auths = append(auths, six.Str(auths[index-1]).Append(":", val).String())
 			}
 		}
 		var list []string

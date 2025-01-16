@@ -22,7 +22,7 @@ func (data AuthRelation) TableName() string {
 }
 
 func (data AuthRelation) HasTableName(filed string) string {
-	return strings.Join([]string{data.TableName(), filed}, ".")
+	return six.Strings(data.TableName(), ".", filed).String()
 }
 
 func (data AuthRelation) KeywordFields() []string {

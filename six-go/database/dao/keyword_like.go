@@ -1,8 +1,7 @@
 package dao
 
 import (
-	"strings"
-
+	"github.com/vainback/six-util/v3"
 	"gorm.io/gorm"
 )
 
@@ -16,12 +15,10 @@ func (ts QueryKeyword) SqlBuilder(fields ...string) func(db *gorm.DB) *gorm.DB {
 			return db
 		}
 
-		var sql strings.Builder
-		sql.WriteString(fields[0] + " like " + "'%" + ts.Keyword + "%'")
-
+		sql := six.Strings(fields[0], " like '%", ts.Keyword, "%'")
 		if len(fields) > 1 {
 			for _, field := range fields[1:] {
-				sql.WriteString(" or " + field + " like " + "'%" + ts.Keyword + "%'")
+				sql.Append(" or ", field, " like '%", ts.Keyword, "%'")
 			}
 		}
 		return db.Where(sql.String())

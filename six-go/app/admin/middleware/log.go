@@ -105,10 +105,6 @@ func OperateLog(c *gin.Context) {
 	c.Next()
 	myLog.ResponseBody = responseW.b.String()
 	if len(myLog.ResponseBody) > 255 {
-		//var result response.Result
-		//_ = json.Unmarshal([]byte(myLog.ResponseBody), &result)
-		//result.Data = nil
-		//bys, _ := json.Marshal(result)
 		myLog.ResponseBody = ""
 	}
 	myLog.Latency = fmt.Sprintf("%.3f秒", time.Since(now).Seconds())

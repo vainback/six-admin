@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"github.com/vainback/six-util/v3"
 	"golang.org/x/exp/constraints"
 	"reflect"
 )
@@ -25,7 +26,7 @@ func Binary[T any](a T, b T) T {
 
 // BinaryOrdered  二元运算符 等价于 b := a ?: b | a 不为空字符串 不为0 不为false时取a 否则取b
 func BinaryOrdered[T constraints.Ordered](a T, b T) T {
-	x := StringX(a)
+	x := six.StrX(a)
 	if !x.IsEmpty() || x.Int() != 0 || x.Bool() {
 		return a
 	}

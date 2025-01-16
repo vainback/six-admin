@@ -2,6 +2,7 @@ package models
 
 import (
 	"errors"
+	"github.com/vainback/six-util/v3"
 	"strings"
 
 	validation "github.com/go-ozzo/ozzo-validation"
@@ -29,14 +30,14 @@ func (data AuthRole) TableName() string {
 }
 
 func (data AuthRole) HasTableName(filed string) string {
-	return strings.Join([]string{data.TableName(), filed}, ".")
+	return six.Strings(data.TableName(), ".", filed).String()
 }
 
 func (data AuthRole) KeywordFields() []string {
-	return []string{
+	return six.Arrays(
 		data.HasTableName("title"),
 		data.HasTableName("sign"),
-	}
+	)
 }
 
 func (data AuthRole) FilterSqlBuilder() func(db *gorm.DB) *gorm.DB {

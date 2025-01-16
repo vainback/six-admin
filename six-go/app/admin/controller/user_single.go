@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	jsoniter "github.com/json-iterator/go"
+	"github.com/vainback/six-util/v3"
 	"log"
 	authruleService "six-go/app/admin/service/authrule"
 	"six-go/extra/xredis"
@@ -19,7 +20,6 @@ import (
 	"six-go/database/models"
 	"six-go/extra/uploader"
 	"six-go/utils"
-	"six-go/utils/arrays"
 	"six-go/utils/response"
 )
 
@@ -89,7 +89,7 @@ func (ts *UserSingleController) Login(c *gin.Context) {
 	response.Json(c, response.OkLogin, gin.H{
 		"token":    token,
 		"userinfo": row,
-		"roles":    arrays.Number2String(row.RoleIds),
+		"roles":    six.ArrayNumber2String(row.RoleIds),
 	})
 }
 
@@ -247,7 +247,7 @@ func (ts *UserSingleController) Menu(c *gin.Context) {
 		ids = append(ids, models.RootRoleId)
 		results[i] = models.AuthRuleForMenu{
 			AuthRule: rule,
-			Roles:    arrays.Number2String(ids),
+			Roles:    six.ArrayNumber2String(ids),
 		}
 	}
 	treeMenu = authruleService.ParserMenu(results, 0)

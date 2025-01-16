@@ -2,7 +2,7 @@ package entity
 
 import (
 	"fmt"
-	"six-go/utils"
+	"github.com/vainback/six-util/v3"
 	"strings"
 
 	"gorm.io/gorm"
@@ -30,8 +30,8 @@ func (e AuthUserJoinJob) FilterSqlBuilder() func(db *gorm.DB) *gorm.DB {
 
 func (e AuthUserJoinJob) Fields() string {
 	var fields = []string{
-		utils.Strings(e.AuthUser.TableName(), ".*").String(),
-		utils.Strings(e.Job.TableName(), ".name as job_name").String(),
+		six.Strings(e.AuthUser.TableName(), ".*").String(),
+		six.Strings(e.Job.TableName(), ".name as job_name").String(),
 	}
 	return strings.Join(fields, ",")
 }

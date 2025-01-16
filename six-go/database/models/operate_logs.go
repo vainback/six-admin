@@ -1,6 +1,7 @@
 package models
 
 import (
+	"github.com/vainback/six-util/v3"
 	"strings"
 
 	"gorm.io/gorm"
@@ -29,17 +30,17 @@ func (OperateLog) TableName() string {
 }
 
 func (data OperateLog) HasTableName(filed string) string {
-	return strings.Join([]string{data.TableName(), filed}, ".")
+	return six.Strings(data.TableName(), ".", filed).String()
 }
 
 func (data OperateLog) KeywordFields() []string {
-	return []string{
+	return six.Arrays(
 		data.HasTableName("ip"),
 		data.HasTableName("route"),
 		data.HasTableName("route_name"),
 		data.HasTableName("request_body"),
 		data.HasTableName("response_body"),
-	}
+	)
 }
 
 func (data OperateLog) FilterSqlBuilder() func(db *gorm.DB) *gorm.DB {

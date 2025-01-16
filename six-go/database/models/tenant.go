@@ -2,9 +2,8 @@ package models
 
 import (
 	"errors"
-	"strings"
-
 	validation "github.com/go-ozzo/ozzo-validation"
+	"github.com/vainback/six-util/v3"
 	"gorm.io/gorm"
 	"six-go/database/db"
 )
@@ -25,15 +24,15 @@ func (data Tenant) TableName() string {
 }
 
 func (data Tenant) HasTableName(filed string) string {
-	return strings.Join([]string{data.TableName(), filed}, ".")
+	return six.Strings(data.TableName(), ".", filed).String()
 }
 
 func (data Tenant) KeywordFields() []string {
-	return []string{
+	return six.Arrays(
 		data.HasTableName("name"),
 		data.HasTableName("sign"),
 		data.HasTableName("domain"),
-	}
+	)
 }
 
 func (data Tenant) FilterSqlBuilder() func(db *gorm.DB) *gorm.DB {
