@@ -2,10 +2,8 @@ package models
 
 import (
 	"errors"
-	"github.com/vainback/six-util/v3"
-	"strings"
-
 	validation "github.com/go-ozzo/ozzo-validation"
+	"github.com/vainback/six-util/v3"
 	"gorm.io/gorm"
 	"six-go/database/db"
 )
@@ -73,38 +71,6 @@ func (data Organization) Valid(idRequired ...bool) error {
 }
 
 func (data Organization) HasChildren() (childNums int64, err error) {
-	err = db.DB().Model(&Organization{}).Where("id = ?", data.Id).Count(&childNums).Error
+	err = db.DB().Model(&Organization{}).Where("parent_id = ?", data.Id).Count(&childNums).Error
 	return
 }
-
-//
-// type GetOrganizationSons struct {
-// 	list []Organization
-// }
-//
-// func NewGetOrganizationSons(id int64) []int64 {
-// 	var list []Organization
-// 	if err := db.DB().Find(&list).Error; err != nil {
-// 		log.Println(err)
-// 		return nil
-// 	}
-//
-// 	var g = &GetOrganizationSons{list: list}
-// 	return g.parserSons(id)
-// }
-//
-// func (g *GetOrganizationSons) parserSons(id int64) []int64 {
-// 	if len(g.list) == 0 {
-// 		return nil
-// 	}
-// 	var sons []int64
-// 	for _, v := range g.list {
-// 		if v.ParentId == id {
-// 			if childs := g.parserSons(v.Id); len(childs) > 0 {
-// 				sons = append(sons, childs...)
-// 			}
-// 			sons = append(sons, v.Id)
-// 		}
-// 	}
-// 	return sons
-// }

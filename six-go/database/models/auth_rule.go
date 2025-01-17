@@ -117,7 +117,7 @@ func (data AuthRule) Valid(idRequired ...bool) error {
 }
 
 func (data AuthRule) HasChildren() (childNums int64, err error) {
-	err = db.DB().Model(&AuthRole{}).Where("id = ?", data.Id).Count(&childNums).Error
+	err = db.DB().Model(&AuthRole{}).Where("parent_id = ?", data.Id).Count(&childNums).Error
 	return
 }
 
