@@ -91,7 +91,7 @@
                                 <a-image
                                     v-if="record.type == 'local'"
                                     width="50"
-                                    :src="urlPrefix + record.url"
+                                    :src="urlPrefix+ 'admin/' + record.url"
                                 ></a-image>
                                 <a-image
                                     v-else
@@ -102,7 +102,7 @@
                             <div v-else-if="record.mime.includes('video')">
                                 <a-link
                                     v-if="record.type == 'local'"
-                                    :href="urlPrefix+ record.url"
+                                    :href="urlPrefix + 'admin/' + record.url"
                                     >查看视频
                                 </a-link>
                                 <a-link v-else :href="record.url"
@@ -113,7 +113,7 @@
                                 <a-typography-text copyable ellipsis>
                                     {{
                                         record.type == 'local'
-                                                ? urlPrefix  + record.url
+                                                ? urlPrefix + 'admin/' + record.url
                                                 : record.url
                                     }}
                                 </a-typography-text>

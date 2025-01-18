@@ -538,13 +538,13 @@ func (c *CodeGenerator) index() *CodeGenerator {
 		} else if f.Type == "开关" {
 			columns.WriteString(strings.Replace(strings.Replace(switchTpl, "{{tpl - $title}}", f.Title, 1), "{{tpl - $name}}", f.Name, 1))
 		} else if strings.Contains(f.Type, "上传图片") {
-			imageTag := fmt.Sprintf("<a-space wrap><a-image v-for=\"url in record.%s\" width=\"50\" :src=\"String(url).includes('http') ? url : urlPrefix + url\"></a-image></a-space>", f.Name)
+			imageTag := fmt.Sprintf("<a-space wrap><a-image v-for=\"url in record.%s\" width=\"50\" :src=\"String(url).includes('http') ? url : urlPrefix + 'admin/' + url\"></a-image></a-space>", f.Name)
 			item := strings.Replace(templateTpl, "{{tpl - $tags}}", imageTag, 1)
 			item = strings.ReplaceAll(item, "{{tpl - $title}}", f.Title)
 			item = strings.ReplaceAll(item, "{{tpl - $name}}", f.Name)
 			columns.WriteString(item)
 		} else if f.Type == "上传视频" || f.Type == "上传文件" {
-			tag := fmt.Sprintf("<a-space wrap><a-link v-for=\"(url, index) in record.%s\" :href=\"String(url).includes('http') ? url : urlPrefix + url\">链接 - {{ index }}</a-link></a-space>", f.Name)
+			tag := fmt.Sprintf("<a-space wrap><a-link v-for=\"(url, index) in record.%s\" :href=\"String(url).includes('http') ? url : urlPrefix + 'admin/' + url\">链接 - {{ index }}</a-link></a-space>", f.Name)
 
 			item := strings.Replace(templateTpl, "{{tpl - $tags}}", tag, 1)
 			item = strings.ReplaceAll(item, "{{tpl - $title}}", f.Title)
