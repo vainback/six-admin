@@ -32,7 +32,7 @@ func Routers(app *gin.RouterGroup) {
 	app.Use(middleware.IsLogin)
 	app.Use(middleware.TenantDI)
 
-	app.Use(middleware.Logs(LogMode))
+	//app.Use(middleware.Logs(LogMode))
 
 	app.Use(middleware.Authorization)
 

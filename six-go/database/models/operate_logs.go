@@ -2,7 +2,6 @@ package models
 
 import (
 	"github.com/vainback/six-util/v3"
-	"strings"
 
 	"gorm.io/gorm"
 	"six-go/database/db"

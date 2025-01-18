@@ -26,7 +26,7 @@ export const EmptyRole : AuthRole = {
     status: 0,
 }
 
-const root = '/auth/role';
+const root = 'admin/auth/role';
 
 export function reqAuthRole(action: string, data: RequestParam<AuthRole> | null)  {
     return axios.post(`${root}/${action}`, data || {});

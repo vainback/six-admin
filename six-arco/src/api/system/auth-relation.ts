@@ -10,7 +10,7 @@ export interface AuthRelation {
     update_time?: string;
     delete_time?: string;
 }
-const root = '/auth/relation'
+const root = 'admin/auth/relation'
 export function getCheckedRule(data: RequestParam<AuthRelation>) {
     return axios.post(`${root}/select/rule`, data);
 }

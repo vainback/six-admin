@@ -16,7 +16,7 @@ export interface Organization {
  export interface TreeOrganization extends Organization{
     children?: TreeOrganization[];
 }
-const root = '/organization'
+const root = 'admin/organization'
 
 export const EmptyOrganization = {
     id: 0,

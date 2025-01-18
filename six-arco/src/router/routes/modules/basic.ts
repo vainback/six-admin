@@ -42,7 +42,7 @@ const BASIC: AppRouteRecordRaw = {
         {
             path: 'code',
             name: 'Code',
-            component: () => import('@/views/basic/CodeGenerator/index.vue'),
+            component: () => import('@/views/basic/Codegen/index.vue'),
             meta: {
                 locale: '代码生成',
                 requiresAuth: true,

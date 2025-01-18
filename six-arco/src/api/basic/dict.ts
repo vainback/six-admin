@@ -23,7 +23,7 @@ export const EmptyDict: Dict = {
     is_sync: 0,
 }
 
-const root = '/dict'
+const root = 'admin/dict'
 export function reqDict(action: string, data: RequestParam<Dict> | null)  {
     return axios.post(`${root}/${action}`, data ||{});
 }

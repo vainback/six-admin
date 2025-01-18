@@ -40,7 +40,7 @@ export const EmptyRule: AuthRule = {
     status: 0,
 }
 
-const root = '/auth/rule'
+const root = 'admin/auth/rule'
 
 export function reqAuthRule(action: string, data: RequestParam<AuthRule> | null)  {
     return axios.post(`${root}/${action}`, data || {});

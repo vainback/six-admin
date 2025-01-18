@@ -3,7 +3,6 @@ package models
 import (
 	"errors"
 	"github.com/vainback/six-util/v3"
-	"strings"
 
 	validation "github.com/go-ozzo/ozzo-validation"
 	"gorm.io/gorm"

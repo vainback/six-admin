@@ -21,6 +21,8 @@ func AutoMigrate() {
 		&models.OperateLog{},
 		&models.Organization{},
 		&models.Tenant{},
+		&models.CodeGenerator{},
+		//&models.Tests{},
 	)
 	if err != nil {
 		log.Println("auto migrate error:", err)

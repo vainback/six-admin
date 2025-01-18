@@ -20,7 +20,7 @@ export const EmptyTenant: Tenant = {
     status: 0,
 }
 
-const root = '/tenant'
+const root = 'admin/tenant'
 export function reqTenant(action: string, data: RequestParam<Tenant> | null)  {
     return axios.post(`${root}/${action}`, data || {});
 }

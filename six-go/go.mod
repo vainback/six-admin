@@ -14,7 +14,7 @@ require (
 	github.com/spf13/cast v1.7.0
 	github.com/spf13/viper v1.19.0
 	github.com/tencentyun/cos-go-sdk-v5 v0.7.55
-	github.com/vainback/six-util/v3 v3.0.0-20250116033020-d34a0a9772fe
+	github.com/vainback/six-util/v3 v3.0.2
 	golang.org/x/crypto v0.27.0
 	golang.org/x/exp v0.0.0-20250106191152-7588d65b2ba8
 	gorm.io/driver/mysql v1.5.7

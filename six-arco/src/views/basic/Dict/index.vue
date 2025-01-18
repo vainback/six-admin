@@ -76,7 +76,11 @@
                             <a-table-column
                                 title="颜色"
                                 data-index="color"
-                            ></a-table-column>
+                            >
+                                <template #cell="{ record }">
+                                    <a-color-picker v-if="record.type != 'root'" v-model="record.color" showText  disabled/>
+                                </template>
+                            </a-table-column>
                             <a-table-column
                                 v-if="isTenantRoot()"
                                 title="是否同步"

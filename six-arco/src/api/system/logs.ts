@@ -31,7 +31,7 @@ export const EmptyLog: Log = {
     method: ''
 }
 
-const root = '/logs'
+const root = 'admin/logs'
 export function reqLog(action: string, data: RequestParam<Log> | null)  {
     return axios.post(`${root}/${action}`, data || {});
 }

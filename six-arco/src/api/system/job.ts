@@ -16,7 +16,7 @@ export interface Job {
 export interface TreeJob extends Job{
     children?: TreeJob[];
 }
-const root = '/job'
+const root = 'admin/job'
 
 export const EmptyJob = {
     id: 0,

@@ -33,6 +33,7 @@
                             defaultValue: ['00:00:00', '00:00:00'],
                         }"
                         :size="size"
+                        
                         @ok="queryList"
                         @clear="queryList"
                     ></a-range-picker>
@@ -221,12 +222,13 @@
     };
 
     const uploadSuccess = async (e) => {
+        console.log(e)
         Message.success('上传成功');
         await queryList();
     };
 
     const uploadError = async (e) => {
-        Message.success(e);
+        Message.error('上传成功');
     };
 </script>
 

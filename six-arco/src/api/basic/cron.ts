@@ -20,7 +20,7 @@ export const EmptyCron: Cron = {
     status: 0
 }
 
-const root = '/cron'
+const root = 'admin/cron'
 export function reqCron(action: string, data: RequestParam<Cron> | null)  {
     return axios.post(`${root}/${action}`, data ||{});
 }

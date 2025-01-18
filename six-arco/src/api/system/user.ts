@@ -44,7 +44,7 @@ export const EmptyUser: Userinfo = {
     tenant_id: 0,
 }
 
-const userSingle = '/user/single'
+const userSingle = 'admin/user/single'
 
 export function login(data: RequestParam<LoginData>) {
     return axios.post<LoginRes>(`${userSingle}/login`, data);
@@ -54,7 +54,7 @@ export function tenant() {
     return axios.post(`${userSingle}/tenant`);
 }
 
-const root = '/auth/user'
+const root = 'admin/auth/user'
 export function reqUser(action: string, data: RequestParam<Userinfo> | null)  {
     return axios.post(`${root}/${action}`, data || {});
 }

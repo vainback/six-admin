@@ -12,6 +12,8 @@ type MenuMeta struct {
 }
 
 type Menu struct {
+	Key       int64    `json:"key"`
+	Title     string   `json:"title"`
 	Path      string   `json:"path,omitempty"`
 	Name      string   `json:"name,omitempty"`
 	Redirect  string   `json:"redirect,omitempty"`
@@ -24,6 +26,8 @@ func ParserMenu(list []models.AuthRuleForMenu, pid int64) []Menu {
 	var tree []Menu
 	for _, v := range list {
 		val := Menu{
+			Key:       v.Id,
+			Title:     v.Locale,
 			Path:      v.Path,
 			Name:      v.Name,
 			Component: v.Component,

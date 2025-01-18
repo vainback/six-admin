@@ -27,9 +27,9 @@ export function getUserInfo() {
 // }
 
 export function getPermissionBtns() {
-    return axios.post('/user/single/btns', {model: {}});
+    return axios.post('admin/user/single/btns', {model: {}});
 }
 
 export function getMenuList() {
-    return axios.post('/user/single/menu', {model: {}})
+    return axios.post('admin/user/single/menu', {model: {}})
 }

@@ -20,7 +20,7 @@ export const EmptyFile: Files = {
     url: ''
 }
 
-const root = '/files'
+const root = 'admin/files'
 export function reqFiles(action: string, data: RequestParam<Files> | null)  {
     return axios.post(`${root}/${action}`, data ||{});
 }

@@ -2,13 +2,11 @@ package models
 
 import (
 	"errors"
-	"github.com/vainback/six-util/v3"
-	"six-go/database/v_errors"
-	"strings"
-
 	validation "github.com/go-ozzo/ozzo-validation"
+	"github.com/vainback/six-util/v3"
 	"gorm.io/gorm"
 	"six-go/database/db"
+	"six-go/database/v_errors"
 )
 
 var TableDict Dict

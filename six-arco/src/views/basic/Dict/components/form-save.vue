@@ -13,8 +13,8 @@
             <a-form-item field="value" label="值" validate-trigger="blur"  :rules="[{required: true, message: '字典值必须填写，且必须在同类型字典中唯一'}]">
                 <a-input v-model.trim="form.value" placeholder="字典值，在同类型字典中唯一"></a-input>
             </a-form-item>
-            <a-form-item field="color" label="颜色">
-                <a-input v-model.trim="form.color" placeholder="颜色"></a-input>
+            <a-form-item v-if="form.type != 'root'" field="color" label="颜色">
+                <a-color-picker v-model="form.color" showText disabledAlpha/>
             </a-form-item>
             <a-form-item field="is_sync" label="同步" v-if="isTenantRoot()">
                 <a-space>

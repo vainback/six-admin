@@ -32,6 +32,8 @@
   "dependencies": {
     "@arco-design/web-vue": "^2.44.7",
     "@vueuse/core": "^9.3.0",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "arco-design-pro-vue": "^2.7.3",
     "axios": "^0.24.0",
     "dayjs": "^1.11.13",

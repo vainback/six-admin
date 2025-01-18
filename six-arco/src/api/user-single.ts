@@ -4,7 +4,7 @@ import {ref} from "vue";
 
 const domain = ref(import.meta.env.VITE_API_BASE_URL)
 
-const root = '/user/single/'
+const root = 'admin/user/single/'
 
 export const uploadUrl = `${domain.value}${root}upload`
 
