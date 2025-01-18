@@ -19,7 +19,6 @@
                     checkable
                     check-strictly
                     default-expand-all
-                    @expand="es => expandedKeys = es.map(item => Number(item))"
                     :data="treeData"
                     :checkedKeys="checkedKeys"
                     @check="onCheck"
@@ -50,7 +49,6 @@ import {ref, watch} from 'vue';
     const loading = ref(false);
     const treeData = ref([]);
     const checkedKeys = ref<number[]>([]);
-    // const expandedKeys = ref<number[]>([1,2])
     const menutree = ref(null);
     const emit = defineEmits(['close', 'refresh', 'closeAndRefresh']);
 
@@ -78,7 +76,6 @@ import {ref, watch} from 'vue';
             } as RequestParam<AuthRule>);
             treeData.value = replaceKeys(res.data || []);
         } finally {
-            expandedKeys.value = [1,2]
             loading.value = false;
         }
     };
