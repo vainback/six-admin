@@ -155,8 +155,10 @@ func (ts *AuthRelationController) Set(c *gin.Context) {
 				}
 			}
 
-			if err := tx.Create(&inserts).Error; err != nil {
-				return err
+			if len(inserts) > 0 {
+				if err := tx.Create(&inserts).Error; err != nil {
+					return err
+				}
 			}
 		}
 		return nil
