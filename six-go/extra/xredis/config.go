@@ -23,7 +23,7 @@ func (r *_config) addr() string {
 }
 
 func (r *_config) pass() string {
-	return cast.ToString(r.data["addr"])
+	return cast.ToString(r.data["pass"])
 }
 
 func (r *_config) db() int {
